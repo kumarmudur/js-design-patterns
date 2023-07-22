@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-const Component1 = () => {
+import widthDimensions from './withDimensions';
+
+const Component1 = ({ width }, forwardedRefFromParent) => {
     return (
-        <div className="comp1">
-            Hey I am Component1 
+        <div ref={forwardedRefFromParent} className="comp1">
+            Hey I am Component1  and my width is: {width}
         </div>
     );
 };
 
-export default Component1;
+export default widthDimensions(forwardRef(Component1));
